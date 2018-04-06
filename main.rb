@@ -1,21 +1,13 @@
 require 'pry'
 require 'tty-cursor'
-
-def draw(row, col, symbol)
-  cursor = TTY::Cursor
-  print cursor.move_to(row, col), symbol
-end
+require './point'
 
 system 'cls'
 
-x1 = 1
-y1 = 3
-char1 = '*'
-draw(x1, y1, char1)
+point1 = Point.new(1, 3, '*')
+point2 = Point.new(4, 5, '#')
 
-x2 = 4
-y2 = 5
-char2 = '#'
-draw(x2, y2, char2)
+point1.draw
+point2.draw
 
 gets
