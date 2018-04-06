@@ -1,13 +1,11 @@
 require 'pry'
 require 'tty-cursor'
-require './point'
+require './horizontal_line'
 
 system 'cls'
 
-point1 = Point.new(1, 3, '*')
-point2 = Point.new(4, 5, '#')
+h_l = HorizontalLine.new(0, 10, 10, '*')
 
-point1.draw
-point2.draw
+h_l.draw
 
 gets
