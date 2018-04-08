@@ -1,11 +1,19 @@
 require 'pry'
 require 'tty-cursor'
 require './horizontal_line'
+require './vertical_line'
 
-system 'cls'
+print "\e[8;25;80t"
+system 'clear'
 
-h_l = HorizontalLine.new(0, 10, 10, '*')
+upper_line = HorizontalLine.new(0, 78, 0, '*')
+lower_line = HorizontalLine.new(0, 78, 24, '*')
+left_line = VerticalLine.new(0, 24, 0, '*')
+right_line = VerticalLine.new(0, 24, 78, '*')
 
-h_l.draw
+upper_line.draw
+lower_line.draw
+left_line.draw
+right_line.draw
 
 gets
