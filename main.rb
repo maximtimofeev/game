@@ -21,8 +21,9 @@ right_line.draw
 
 # snake
 point = Point.new(4, 5, '*')
-snake = Snake.new(point, 4, Direction::DOWN)
+snake = Snake.new(point, 4, Direction::RIGHT)
 snake.draw
+snake.move
 
 # move cursor
 print TTY::Cursor.move_to(78, 24)
