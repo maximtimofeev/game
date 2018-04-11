@@ -16,6 +16,11 @@ class Point
     print cursor.move_to(@x, @y), @symbol
   end
 
+  def clear
+    @symbol = ' '
+    draw
+  end
+
   def move(offset, direction)
     case direction
     when TOP
@@ -29,6 +34,7 @@ class Point
     else
       raise 'Wrong snake\'s direction'
     end
+    self
   end
 
   def to_s
