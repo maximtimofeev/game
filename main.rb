@@ -1,5 +1,5 @@
 require 'pry'
-require 'tty-cursor'
+require 'tty'
 require_relative 'horizontal_line'
 require_relative 'vertical_line'
 require_relative 'snake'
@@ -21,10 +21,28 @@ right_line.draw
 
 # snake
 point = Point.new(4, 5, '*')
-snake = Snake.new(point, 4, Direction::RIGHT)
+snake = Snake.new(point, 70, Direction::RIGHT)
 snake.draw
 snake.move
 
-# move cursor
-print TTY::Cursor.move_to(78, 24)
-gets
+prompt = TTY::Prompt.new(interrupt: :exit)
+
+threads = []
+
+threads << Thread.new do |url|
+    loop do
+      sleep(0.1)
+      snake.move
+    end
+end
+
+threads << Thread.new do
+  loop do 
+    prompt.on(:keypress) do |event|
+      snake.handle_key(event.value)
+    end
+    prompt.read_keypress
+  end
+end
+
+threads.each {|thr| thr.join }

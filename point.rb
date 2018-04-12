@@ -23,7 +23,7 @@ class Point
 
   def move(offset, direction)
     case direction
-    when TOP
+    when UP
       @y += offset
     when RIGHT
       @x += offset

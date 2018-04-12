@@ -1,9 +1,13 @@
 require_relative 'shape'
 require_relative 'directions'
+require_relative 'movable'
 
 # snake class
 class Snake < Shape
   include Direction
+  include Movable
+  attr_accessor :direction
+
   def initialize(tail, length, direction)
     super()
     length.times do |time|
@@ -19,6 +23,13 @@ class Snake < Shape
     @point_list.shift
     @point_list << next_point
     @point_list.last.draw
+  end
+
+  def handle_key(key)
+    direction = button_pressed(key)
+    if direction != ERROR
+      @direction = direction
+    end
   end
 
   private
