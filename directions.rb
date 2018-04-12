@@ -1,7 +1,8 @@
 # snake directions
 module Direction
-  TOP = 0
+  UP = 0
   RIGHT = 1
   DOWN = 2
   LEFT = 3
+  ERROR = -1
 end
