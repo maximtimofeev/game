@@ -6,7 +6,7 @@ class Shape
     @point_list = []
   end
 
-  def draw
-    @point_list.each(&:draw)
+  def draw(color = :yellow)
+    @point_list.each { |point| point.draw(color) }
   end
 end

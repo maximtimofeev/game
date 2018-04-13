@@ -15,9 +15,9 @@ class Point
     @x == point.x && @y == point.y
   end
 
-  def draw
+  def draw(color = :white)
     cursor = TTY::Cursor
-    print cursor.move_to(@x, @y), @symbol
+    print cursor.move_to(@x, @y), @symbol.colorize(color)
   end
 
   def clear

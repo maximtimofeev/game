@@ -23,7 +23,7 @@ class Snake < Shape
     @point_list.first.clear
     @point_list.shift
     @point_list << next_point
-    @point_list.last.draw
+    @point_list.last.draw(:green)
   end
 
   def handle_key(key)
@@ -41,6 +41,10 @@ class Snake < Shape
     else
       false
     end
+  end
+
+  def draw(color = :green)
+    super
   end
 
   private
