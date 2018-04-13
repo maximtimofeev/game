@@ -11,6 +11,10 @@ class Point
     @symbol = symbol
   end
 
+  def hit?(point)
+    @x == point.x && @y == point.y
+  end
+
   def draw
     cursor = TTY::Cursor
     print cursor.move_to(@x, @y), @symbol

@@ -1,6 +1,7 @@
 require_relative 'shape'
 require_relative 'directions'
 require_relative 'movable'
+require 'pry'
 
 # snake class
 class Snake < Shape
@@ -27,8 +28,18 @@ class Snake < Shape
 
   def handle_key(key)
     direction = button_pressed(key)
-    if direction != ERROR
-      @direction = direction
+    @direction = direction unless direction == ERROR && @direction == direction
+  end
+
+  def eat?(food)
+    head = next_point
+    if head.hit?(food)
+      food.symbol = head.symbol
+      food.draw
+      @point_list << food
+      return true
+    else
+      false
     end
   end
 
