@@ -1,4 +1,5 @@
 require_relative 'directions'
+require 'pry'
 
 # point class
 class Point
