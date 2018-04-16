@@ -1,7 +1,6 @@
 require_relative 'shape'
 require_relative 'directions'
 require_relative 'movable'
-require 'pry'
 
 # snake class
 class Snake < Shape
@@ -23,7 +22,7 @@ class Snake < Shape
     @point_list.first.clear
     @point_list.shift
     @point_list << next_point
-    @point_list.last.draw
+    @point_list.last.draw(:green)
   end
 
   def handle_key(key)
@@ -41,6 +40,22 @@ class Snake < Shape
     else
       false
     end
+  end
+
+  def hit?(walls)
+    head = next_point
+    walls.each do |wall|
+      return true if wall.include?(head)
+    end
+    false
+  end
+
+  def eat_self?
+    self.include?(next_point)
+  end
+
+  def draw(color = :green)
+    super
   end
 
   private
