@@ -5,10 +5,10 @@ require_relative 'vertical_line'
 class Walls
   def initialize(map_width, map_height)
     @walls_list = []
-    @walls_list << HorizontalLine.new(0, map_width - 2, 0, '+')
-    @walls_list << HorizontalLine.new(0, map_width - 2, map_height - 1, '+')
+    @walls_list << HorizontalLine.new(0, map_width - 1, 0, '+')
+    @walls_list << HorizontalLine.new(0, map_width - 1, map_height - 1, '+')
     @walls_list << VerticalLine.new(0, map_height - 1, 0, '+')
-    @walls_list << VerticalLine.new(0, map_height - 1, map_width - 2, '+')
+    @walls_list << VerticalLine.new(0, map_height - 1, map_width - 1, '+')
   end
 
   def each(&block)

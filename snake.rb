@@ -6,7 +6,7 @@ require_relative 'movable'
 class Snake < Shape
   include Direction
   include Movable
-  attr_accessor :direction
+  attr_accessor :direction, :points_eated
 
   def initialize(tail, length, direction)
     super()
@@ -15,6 +15,7 @@ class Snake < Shape
       point.move(time, direction)
       @point_list << point
       @direction = direction
+      @points_eated = 0
     end
   end
 
@@ -34,8 +35,9 @@ class Snake < Shape
     head = next_point
     if head.hit?(food)
       food.symbol = head.symbol
-      food.draw
+      food.draw(:green)
       @point_list << food
+      @points_eated += 1
       return true
     else
       false
