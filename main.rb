@@ -10,7 +10,7 @@ SCORE_MESSAGE = 'Total score: '
 
 print "\e[8;27;80t"
 system 'clear'
-system('echo -n -e', '\e[?17;14;224c')
+system('cls')
 
 def print_score(score)
   cursor = TTY::Cursor

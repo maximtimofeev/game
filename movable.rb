@@ -5,13 +5,13 @@ module Movable
     case key
     when "\e"
       exit
-    when "\e[A"
+    when "\e[A", "àH"
       Direction::DOWN
-    when "\e[B"
+    when "\e[B", "àP"
       Direction::UP
-    when "\e[C"
+    when "\e[C", "àM"
       Direction::RIGHT
-    when "\e[D"
+    when "\e[D", "àK"
       Direction::LEFT
     else
       Direction::ERROR
