@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require 'tty'
 require 'colorize'
 require_relative 'walls'
